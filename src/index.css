@@ -1,0 +1,401 @@
+/* ShreeRatna - Premium Indian Jewelry E-Commerce */
+/* Typography: Blend of traditional elegance with modern clarity */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Yeseva+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles - Indian Heritage Color Palette */
+:root {
+  /* Primary - Temple Gold / Antique Gold */
+  --gold-primary: #C9A227;
+  --gold-light: #E8D48A;
+  --gold-dark: #8B6914;
+
+  /* Secondary - Deep Maroon / Kumkum Red */
+  --maroon-primary: #800020;
+  --maroon-light: #A52A2A;
+  --maroon-dark: #4A0012;
+
+  /* Accent - Royal Peacock Blue */
+  --peacock-primary: #005F6B;
+  --peacock-light: #008B8B;
+
+  /* Accent 2 - Saffron Orange */
+  --saffron: #FF9933;
+  --saffron-light: #FFBF69;
+
+  /* Accent 3 - Emerald Green (Prosperity) */
+  --emerald-primary: #046A38;
+  --emerald-light: #50C878;
+
+  /* Neutrals */
+  --ivory: #FFFEF9;
+  --cream: #FDF8F3;
+  --sandstone: #F5E6D3;
+  --charcoal: #1A1A1A;
+  --brown-text: #2D1810;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background-color: var(--cream);
+  color: var(--brown-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+/* Headings use Cinzel for luxury feel */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Special display text uses Yeseva One */
+.display-text {
+  font-family: 'Yeseva One', Georgia, serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-primary), var(--rose-accent));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--gold-primary);
+  color: white;
+}
+
+/* Utility classes */
+@layer components {
+  /* Text Gradients */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600;
+  }
+
+  .text-gradient-maroon {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-maroon-600 via-maroon-500 to-maroon-600;
+  }
+
+  .text-gradient-peacock {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-peacock-600 via-peacock-500 to-peacock-600;
+  }
+
+  /* Buttons - Indian Heritage Style */
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold-600 to-gold-500 text-white font-medium
+           px-8 py-3 rounded-lg transition-all duration-300
+           hover:shadow-gold-lg hover:scale-[1.02] active:scale-[0.98]
+           border border-gold-700/20;
+  }
+
+  .btn-maroon {
+    @apply bg-gradient-to-r from-maroon-600 to-maroon-500 text-white font-medium
+           px-8 py-3 rounded-lg transition-all duration-300
+           hover:shadow-maroon hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-outline-gold {
+    @apply border-2 border-gold-600 text-gold-700 font-medium
+           px-8 py-3 rounded-lg transition-all duration-300
+           hover:bg-gold-600 hover:text-white hover:shadow-gold;
+  }
+
+  .btn-outline-maroon {
+    @apply border-2 border-maroon-600 text-maroon-600 font-medium
+           px-8 py-3 rounded-lg transition-all duration-300
+           hover:bg-maroon-600 hover:text-white hover:shadow-maroon;
+  }
+
+  /* Cards */
+  .card-elegant {
+    @apply bg-white rounded-xl shadow-elegant overflow-hidden
+           transition-all duration-500 hover:shadow-gold-lg
+           border border-gold-100;
+  }
+
+  .card-heritage {
+    @apply bg-ivory rounded-xl shadow-elegant overflow-hidden
+           transition-all duration-500 hover:shadow-gold-lg
+           border border-sandstone;
+  }
+
+  /* Form Elements */
+  .input-elegant {
+    @apply w-full px-4 py-3 border border-sandstone rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent
+           text-brown-800 placeholder-brown-400
+           transition-all duration-300 bg-white;
+  }
+
+  /* Layout */
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Indian Decorative Border */
+  .border-ornate {
+    @apply border-2 border-gold-400 relative;
+  }
+
+  .border-ornate::before {
+    content: '';
+    @apply absolute inset-2 border border-gold-300 pointer-events-none;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+/* Shimmer effect for loading */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Metallic gold effect */
+.metallic-gold {
+  background: linear-gradient(
+    180deg,
+    #E8D48A 0%,
+    #C9A227 25%,
+    #8B6914 50%,
+    #C9A227 75%,
+    #E8D48A 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Indian Heritage Pattern Overlay */
+.pattern-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='%23C9A227' fill-opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Paisley subtle pattern */
+.pattern-paisley {
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.04'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Scroll reveal animations */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Parallax layers */
+.parallax-slow {
+  will-change: transform;
+}
+
+.parallax-medium {
+  will-change: transform;
+}
+
+.parallax-fast {
+  will-change: transform;
+}
+
+/* Smooth hover lift */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(201, 162, 39, 0.15);
+}
+
+/* Ornate divider */
+.ornate-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ornate-divider::before,
+.ornate-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+/* Heritage section background */
+.bg-heritage {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--sandstone) 100%);
+}
+
+.bg-heritage-dark {
+  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 100%);
+}
+
+/* Enhanced GSAP Animation Classes */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 40s linear infinite;
+}
+
+/* Line clamp utility */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Gradient text utility */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--saffron) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Smooth scroll snap for sections */
+.scroll-snap-section {
+  scroll-snap-type: y proximity;
+}
+
+.scroll-snap-section > section {
+  scroll-snap-align: start;
+}
