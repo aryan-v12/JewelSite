@@ -1,137 +1,71 @@
-# 💎 Jewel Elegance - Luxury Indian Jewelry E-Commerce
+# ShreeRatna — Indian Heritage Jewelry E-Commerce
 
-A stunning, production-ready e-commerce platform for luxury Indian jewelry, featuring authentic regional designs from Rajasthan, Bengal, South India, and Maharashtra.
+A full-stack e-commerce platform for authentic Indian heritage jewelry, featuring regional designs from Rajasthan, Bengal, South India, Maharashtra, and more.
 
-## ✨ Features
+**Live Demo:** [shreeratna.netlify.app](https://shreeratna.netlify.app)
 
-### 🛍️ Shopping Experience
-- **Product Catalog** - Browse Diamond, Gold, and Silver jewelry with advanced filtering
-- **Product Details** - Zoom-enabled image galleries, detailed specifications
-- **Shopping Cart** - Real-time cart with quantity management
-- **Wishlist** - Save favorite pieces for later
-- **Checkout** - Razorpay payment integration
+## Tech Stack
 
-### 🎨 Design & Animations
-- **GSAP Animations** - Smooth parallax, staggered reveals, 3D card effects
-- **Responsive Design** - Mobile-first approach with elegant breakpoints
-- **Luxury Theme** - Custom gold/purple/rose color palette with metallic gradients
+**Frontend:** React 18, Vite 5, Tailwind CSS 3, GSAP, Swiper  
+**State Management:** Zustand, TanStack React Query  
+**Backend:** Supabase (Auth, PostgreSQL, Row Level Security, Storage)  
+**Payments:** Razorpay  
+**Deployment:** Netlify
 
-### 🔐 User Features
-- **Authentication** - Email/password and Google OAuth via Supabase
-- **Profile Management** - Edit user details, view order history
-- **Order Tracking** - Real-time order status updates
+## Features
 
-## 🚀 Tech Stack
+- Product catalog with category & region filters (Diamond, Gold, Silver)
+- GSAP-powered animations — parallax, staggered reveals, 3D card effects
+- Razorpay checkout integration
+- Supabase Auth (Email/Password, Google OAuth)
+- Cart, Wishlist, Orders with real-time sync
+- Profile management & order tracking
+- Responsive, mobile-first design
 
-| Category | Technology |
-|----------|------------|
-| Frontend | React 18, Vite 5 |
-| Styling | Tailwind CSS 3 |
-| Animations | GSAP (GreenSock) |
-| State Management | Zustand |
-| Database & Auth | Supabase |
-| Payments | Razorpay |
-| Routing | React Router 6 |
-| Icons | Lucide React |
-
-## 📦 Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/jewel-elegance.git
-   cd jewel-elegance
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   ```
-
-   Fill in your Supabase and Razorpay credentials in `.env`
-
-4. **Set up Supabase database**
-   - Create a new Supabase project at [supabase.com](https://supabase.com)
-   - Run the SQL files in order:
-     1. `supabase/schema.sql` - Database tables and RLS policies
-     2. `supabase/storage.sql` - Storage buckets
-     3. `supabase/seed.sql` - Sample product data
-
-5. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── features/     # Feature components (ProductCard, SearchBar, etc.)
-│   ├── layout/       # Layout components (Navbar, Footer)
-│   └── ui/           # Reusable UI components (Button, Loader)
-├── lib/              # Supabase client & utilities
-├── pages/            # Page components
-└── store/            # Zustand state stores
+│   ├── features/     # ProductCard, SearchBar, etc.
+│   ├── layout/       # Navbar, Footer
+│   └── ui/           # Reusable UI components
+├── lib/              # Supabase client
+├── pages/            # Route pages
+└── store/            # Zustand stores (Auth, Cart, Wishlist)
 ```
 
-## 🎨 Color Palette
-
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Gold | `#D4AF37` | Primary brand color |
-| Purple | `#4A148C` | Accent color |
-| Rose Gold | `#B76E79` | Secondary accent |
-| Cream | `#FFF8F0` | Background |
-| Charcoal | `#2C2C2C` | Text |
-| Brown | `#3E2723` | Dark text |
-
-## 📱 Pages
-
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Hero, featured products, categories |
-| Shop | `/shop` | Product grid with filters |
-| Product | `/product/:id` | Product details and gallery |
-| Cart | `/cart` | Shopping cart |
-| Checkout | `/checkout` | Address and payment |
-| Wishlist | `/wishlist` | Saved products |
-| Profile | `/profile` | User dashboard |
-| Orders | `/orders` | Order history |
-| About | `/about` | Company story |
-| Contact | `/contact` | Contact form |
-
-## 🔧 Scripts
+## Getting Started
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
+git clone https://github.com/yourusername/shreeratna.git
+cd shreeratna
+npm install
+cp .env.example .env   # Add your Supabase & Razorpay keys
+npm run dev
 ```
 
-## 🚀 Deployment
+### Database Setup
 
-### Vercel (Recommended)
-1. Push to GitHub
-2. Import project in Vercel
-3. Add environment variables
-4. Deploy!
+Run these SQL files in your [Supabase](https://supabase.com) SQL Editor:
 
-### Manual Build
+1. `supabase/schema.sql` — Tables, indexes, RLS policies
+2. `supabase/storage.sql` — Storage buckets
+3. `supabase/seed.sql` — Sample product data
+
+## Scripts
+
 ```bash
-npm run build
-# Deploy contents of `dist/` folder
+npm run dev       # Dev server
+npm run build     # Production build
+npm run preview   # Preview build
+npm run lint      # ESLint
 ```
 
-## 📄 License
+## Deployment
 
-MIT License - feel free to use for personal or commercial projects.
+Push to GitHub → Import in [Netlify](https://netlify.com) → Add environment variables → Deploy.
 
----
+## License
 
-Built with ❤️ for jewelry lovers everywhere
+MIT
