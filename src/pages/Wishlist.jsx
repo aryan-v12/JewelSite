@@ -22,6 +22,7 @@ const Wishlist = () => {
 
   // Wait for component to mount (handles hydration)
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsReady(true);
     document.title = 'Wishlist | ShreeRatna';
   }, []);

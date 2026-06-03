@@ -84,7 +84,7 @@ const AuthModal = ({ isOpen, onClose }) => {
           toast.error(result.error || 'Signup failed');
         }
       }
-    } catch (error) {
+    } catch {
       toast.error('Something went wrong');
     }
     setIsLoading(false);

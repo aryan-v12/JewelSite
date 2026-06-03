@@ -5,14 +5,21 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
-import { Search, X, TrendingUp } from 'lucide-react';
+import { Search, X, TrendingUp, Loader2 } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 const SearchBar = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, setRecentSearches] = useState(() => {
+    try {
+      const stored = localStorage.getItem('recentSearches');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
 
   const overlayRef = useRef(null);
   const modalRef = useRef(null);
@@ -35,10 +42,6 @@ const SearchBar = ({ isOpen, onClose }) => {
         { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
       );
       setTimeout(() => inputRef.current?.focus(), 100);
-
-      // Load recent searches from localStorage
-      const stored = localStorage.getItem('recentSearches');
-      if (stored) setRecentSearches(JSON.parse(stored));
     } else {
       document.body.style.overflow = '';
     }
@@ -47,7 +50,6 @@ const SearchBar = ({ isOpen, onClose }) => {
   // Fetch suggestions
   useEffect(() => {
     if (query.length < 2) {
-      setSuggestions([]);
       return;
     }
 
@@ -71,6 +73,13 @@ const SearchBar = ({ isOpen, onClose }) => {
     const debounce = setTimeout(fetchSuggestions, 300);
     return () => clearTimeout(debounce);
   }, [query]);
+
+  const handleQueryChange = (val) => {
+    setQuery(val);
+    if (val.length < 2) {
+      setSuggestions([]);
+    }
+  };
 
   const handleSearch = (searchQuery) => {
     const q = searchQuery || query;
@@ -113,12 +122,16 @@ const SearchBar = ({ isOpen, onClose }) => {
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           {/* Search input */}
           <div className="flex items-center gap-4 p-4 border-b border-gold-100">
-            <Search className="w-6 h-6 text-gold-500" />
+            {isLoading ? (
+              <Loader2 className="w-6 h-6 text-gold-500 animate-spin" />
+            ) : (
+              <Search className="w-6 h-6 text-gold-500" />
+            )}
             <input
               ref={inputRef}
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => handleQueryChange(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               placeholder="Search for diamond, gold, silver jewelry..."
               className="flex-1 text-lg font-sans text-brown-800 placeholder-brown-300 

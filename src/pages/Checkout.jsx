@@ -15,9 +15,9 @@ import { Helmet } from 'react-helmet-async';
 const Checkout = () => {
   const navigate = useNavigate();
   const { items, clearCart } = useCartStore();
-  const { user, isAuthenticated } = useAuthStore();
+  const { user } = useAuthStore();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [step, setStep] = useState(1); // 1: Address, 2: Payment
+  const step = 1; // 1: Address, 2: Payment
 
   const [formData, setFormData] = useState({
     fullName: user?.full_name || '',
